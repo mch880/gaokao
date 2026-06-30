@@ -1,0 +1,9 @@
+services:
+  gaokao:
+    build: .
+    container_name: gaokao
+    ports:
+      - "${PORT:-51985}:51985"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
