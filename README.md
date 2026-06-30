@@ -34,7 +34,7 @@
 ```bash
 services:
   gaokao:
-    build: .
+    image: mch880/gaokao:latest
     container_name: gaokao
     ports:
       - 51985:51985
