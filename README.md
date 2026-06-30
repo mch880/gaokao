@@ -30,29 +30,15 @@
 ### Docker Compose（推荐）
 
 ```bash
-docker compose up -d
-```
-
-访问 http://localhost:51985
-
-自定义端口：
-
-```bash
-PORT=8080 docker compose up -d
-```
-
-### Docker
-
-```bash
-docker build -t gaokao-query-all .
-docker run -d -p 51985:51985 --name gaokao-query-all gaokao-query-all
-```
-
-### 本地运行
-
-```bash
-pip install flask
-python app.py
+services:
+  gaokao:
+    build: .
+    container_name: gaokao
+    ports:
+      - 51985:51985
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
 ```
 
 访问 http://localhost:51985
@@ -76,18 +62,6 @@ python app.py
 - **后端**：Python + Flask（提供数据 API，JSON 预缓存避免重复序列化）
 - **部署**：Docker / Docker Compose
 
-## API
+# 广东高考投档分数线查询工具
 
-| 端点 | 说明 |
-|------|------|
-| `GET /` | 返回前端页面 |
-| `GET /api/data` | 返回全量投档数据（JSON 预缓存） |
-| `GET /health` | 健康检查，返回 `{"status":"ok","records":20392}` |
-
-## 架构
-
-```
-浏览器 → index.html → fetch('/api/data') → app.py → 读取 data.json → 返回预缓存 JSON
-                     ↓
-              前端 JS 筛选/排序/分页/导出
-```
+这是一个用 MIT 协议开源的示例项目，用于演示发布流程。
