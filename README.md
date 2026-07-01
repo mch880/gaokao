@@ -43,27 +43,5 @@ services:
       - PYTHONUNBUFFERED=1
 ```
 
-访问 http://localhost:51985
-
-## 项目结构
-
-```
-.
-├── app.py              # Flask 后端（提供 /api/data 接口，预缓存 JSON）
-├── index.html          # 前端页面（调 /api/data 加载数据，前端筛选/排序/导出）
-├── data.json           # 投档数据（本科+专科，含办学性质）
-├── requirements.txt    # Python 依赖
-├── Dockerfile          # Docker 构建文件（分层优化，大文件放最后）
-├── docker-compose.yml  # Docker Compose 配置（支持 PORT 环境变量）
-└── README.md           # 说明文档
-```
-
-## 技术栈
-
-- **前端**：原生 HTML/CSS/JavaScript（无框架依赖，前端完成所有筛选/排序/导出）
-- **后端**：Python + Flask（提供数据 API，JSON 预缓存避免重复序列化）
-- **部署**：Docker / Docker Compose
 
 # 广东高考投档分数线查询工具（本科+专科）
-
-这是一个用 MIT 协议开源的示例项目，用于演示发布流程。
