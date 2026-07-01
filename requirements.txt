@@ -1,4 +1,0 @@
-flask==3.1.1
-# gunicorn 仅用于 Docker 生产部署，Windows 本地开发无需安装
-# Docker: pip install gunicorn==23.0.0
-gunicorn==23.0.0
