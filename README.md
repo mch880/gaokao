@@ -41,6 +41,8 @@ services:
     restart: unless-stopped
     environment:
       - PYTHONUNBUFFERED=1
+    volumes:
+        - ./:/data
 ```
 
 
