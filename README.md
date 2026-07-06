@@ -36,13 +36,11 @@ services:
   gaokao:
     image: mch880/gaokao:latest
     container_name: gaokao
+	restart: unless-stopped
     ports:
       - 51985:51985
-    restart: unless-stopped
-    environment:
-      - PYTHONUNBUFFERED=1
-    volumes:
-        - ./:/data
+	volumes:
+      - ./:/data
 ```
 
 
