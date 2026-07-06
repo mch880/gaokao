@@ -33,14 +33,15 @@
 
 ```bash
 services:
-  gaokao:
-    image: mch880/gaokao:latest
-    container_name: gaokao
-	restart: unless-stopped
-    ports:
-      - 51985:51985
-	volumes:
-      - ./:/data
+    app:
+      image: mch880/gaokao:latest
+      container_name: gaokao
+      restart: always
+      network_mode: bridge
+      ports:
+        - 51985:51985
+      volumes:
+        - ./:/data
 ```
 
 
